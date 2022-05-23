@@ -51,8 +51,8 @@ AND WATCH TOTOURIAL VIDEO IF YOU WANT ANY HELP</b>"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🤩SOURCE🤩', url='https://hbamal.blogspot.com/2021/08/how-to-make-your-own-discussion-unpin_4.html'),
-        InlineKeyboardButton('💟TOTOURIAL💟', url='https://www.youtube.com/watch?v=sXTg5CB9dy8')
+        InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
+        InlineKeyboardButton('🧑‍💻DEV🧑‍💻', url='https://telegram.me/alluaddict')
         ],[
         InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
         InlineKeyboardButton('🤗ABOUT🤗', callback_data='about'),
@@ -72,7 +72,7 @@ HELP_BUTTONS = InlineKeyboardMarkup(
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
-        InlineKeyboardButton('🤩SOURCE🤩', url='https://youtu.be/sXTg5CB9dy8')
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
         ],[
         InlineKeyboardButton('🏡HOME🏡', callback_data='home'),
         InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
@@ -274,7 +274,30 @@ async def echo_document(client: Client, msg: Message):
     file_obj = io.BytesIO(bytes(msg.text, "utf-8"))
     file_obj.name = "PROJECT.py"
     await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
+    
+@HB.on_message(filters.text & filters.command(["sas"]))
+async def echo_document(client: Client, msg: Message):
+    file_obj = io.BytesIO(bytes(msg.text, "utf-8"))
+    file_obj.name = "SAS .sas"
+    await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
+    
+@HB.on_message(filters.text & filters.command(["shell"]))
+async def echo_document(client: Client, msg: Message):
+    file_obj = io.BytesIO(bytes(msg.text, "utf-8"))
+    file_obj.name = "SHELL.cgi"
+    await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
 
+@HB.on_message(filters.text & filters.command(["matlab"]))
+async def echo_document(client: Client, msg: Message):
+    file_obj = io.BytesIO(bytes(msg.text, "utf-8"))
+    file_obj.name = "MATLAB.matlab"
+    await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
+
+@HB.on_message(filters.text & filters.command(["kotlin"]))
+async def echo_document(client: Client, msg: Message):
+    file_obj = io.BytesIO(bytes(msg.text, "utf-8"))
+    file_obj.name = "KOTLIN.kt"
+    await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
 
 @HB.on_message(filters.text & filters.command(["kivy"]))
 async def echo_document(client: Client, msg: Message):
