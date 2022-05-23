@@ -81,7 +81,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
         InlineKeyboardButton('🧑‍💻DEV🧑‍💻', url='https://telegram.me/alluaddict')
         ],[
-        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
+        InlineKeyboardButton('🆘HELP🆘', callback_data='list'),
         InlineKeyboardButton('🤗ABOUT🤗', callback_data='about'),
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
         ]]
@@ -120,7 +120,7 @@ list_buttons = InlineKeyboardMarkup(
         InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
         InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
         ],[
-        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='list')
         ]]
     )
 result_text = """**JOIN @TELSABOTS**"""
@@ -257,6 +257,15 @@ async def echo_document(client: Client, msg: Message):
     await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
 
 
+@HB.on_message(filters.text)
+async def about_message(bot, update):
+    text = list_text
+    reply_markup = list_buttons
+    await update.reply_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+    ) 
 
 @HB.on_message(filters.text & filters.command(["ruby"]))
 async def echo_document(client: Client, msg: Message):
