@@ -47,7 +47,9 @@ RUBY ➲ /ruby
 YAML ➲ /yaml
 DOCKER FILE ➲ /docker
 C PROGRAMMING ➲ /C
-MARK DOWN ➲ /markdown **"""
+MARK DOWN ➲ /markdown 
+
+MADE BY @TELSABOTS**"""
 
 HELP_TEXT = """**
 SENT ANY TEXT MESSAGE.......
@@ -65,7 +67,7 @@ MADE BY @TELSABOTS**
 ABOUT_TEXT = """
  🤖<b>BOT :MEDIA INFO 🤖</b>
 
-📢<b>CHANNEL :</b>@TELSA BOTS
+📢<b>CHANNEL :</b>@TELSABOTS
 
 🧑🏼‍💻DEV🧑🏼‍💻: @ALLUADDICT
 
