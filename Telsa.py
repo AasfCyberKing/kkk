@@ -15,24 +15,34 @@ HB = Client(
     api_hash = os.environ["API_HASH"]
 )
 
-START_TEXT = """HI {}, 
-I CAN UNPIN MESSAGES IN YOUR GROUP WHEN YOU POST ON THE CONNECTED CHANNEL
-MADE BY @TELSABOTS
+START_TEXT = """**
+HI {}, 
+I AM A SIMPLE 
+TEXT TO FILE BOT 
+JUST SENT YOUR CODE OR TEXT MESSAGE 
+THEN I WILL CONVERT IT INTO FILE
+
+MADE BY @TELSABOTS**"""
+
+HELP_TEXT = """**
+SENT ANY TEXT MESSAGE.......
+
+THEN REPLY WITH ANY /COMMAND
+
+eg :- /python
+
+PRESS /LIST COMMAND TO KNOW ABOUT
+CUREENTLY SUPPORTED EXTENSIONS
+
+MADE BY @TELSABOTS**
 """
-HELP_TEXT = """
- ADD ME TO UR DISCUSSION GROUP AS ADMIN 
-THEN SEE THE MAGIC 🥳
-MADE BY @TELSABOTS
-"""
+
 ABOUT_TEXT = """
- 🤖<b>BOT:DISCUSS UNPIN🤖</b>
- 
-📢<b>CHANNEL :</b> ❤️ <a href='https://t.me/telsabots'>TELSA BOTS❤️</a>
+ 🤖<b>BOT :MEDIA INFO 🤖</b>
+
+📢<b>CHANNEL :</b>@TELSA BOTS
 
 🧑🏼‍💻DEV🧑🏼‍💻: @ALLUADDICT
-
- 
-🤩<b>SOURCE :</b> 🤩 <a href='https://hbamal.blogspot.com/2021/08/how-to-make-your-own-discussion-unpin_4.html'>CLICK HERE❤️</a>
 
 """
 
