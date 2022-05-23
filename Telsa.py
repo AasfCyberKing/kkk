@@ -24,7 +24,9 @@ THEN I WILL CONVERT IT INTO FILE
 
 MADE BY @TELSABOTS**"""
 
-list_text = """**Language ➲ Language COMMAND
+list_text = """**LIST OF  LANGAUGES
+
+
 PYTHON➲  /python
 JAVA ➲  /java
 HTML ➲ /html
