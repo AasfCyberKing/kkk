@@ -139,7 +139,16 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=HELP_BUTTONS
         )
+    
     elif update.data == "about":
+        await update.message.edit_text(
+            text=ABOUT_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=ABOUT_BUTTONS
+        )
+    elif update.data == "list":
+        
+
         await update.message.edit_text(
             text=ABOUT_TEXT,
             disable_web_page_preview=True,
@@ -178,14 +187,11 @@ async def about_message(bot, update):
         reply_markup=reply_markup
     )     
 @HB.on_message(filters.command(["list"]))
-async def about_message(bot, update):
-    text = list_text
-    reply_markup = list_buttons
-    await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
-    )        
+async def echo_document(client: Client, msg: Message):
+    reply_markup = result_buttons
+    file_obj = io.BytesIO(bytes(msg.text, "utf-8"))
+    file_obj.name = "main.c"
+    await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)      
 @HB.on_message(filters.command(["Source", "s"]))
 async def Source_message(bot, update):
     text = SOURCE_TEXT
