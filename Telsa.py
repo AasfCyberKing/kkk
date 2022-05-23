@@ -23,10 +23,10 @@ JUST SENT YOUR CODE OR TEXT MESSAGE
 THEN I WILL CONVERT IT INTO FILE
 
 MADE BY @TELSABOTS**"""
-list_text = """**Language ➲ Language COMMAND
 
+list_text = """**Language ➲ Language COMMAND
 PYTHON➲  /python
- JAVA ➲  /java
+JAVA ➲  /java
 HTML ➲ /html
 CSS ➲ /css
 PHP ➲ /php
@@ -45,7 +45,7 @@ RUBY ➲ /ruby
 YAML ➲ /yaml
 DOCKER FILE ➲ /docker
 C PROGRAMMING ➲ /C
-MARK DOWN ➲ /markdown """**
+MARK DOWN ➲ /markdown **"""
 
 HELP_TEXT = """**
 SENT ANY TEXT MESSAGE.......
@@ -119,7 +119,7 @@ list_buttons = InlineKeyboardMarkup(
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
         ]]
     )
-
+result_text = """**JOIN @TELSABOTS**"""
 
 @HB.on_callback_query()
 async def cb_data(bot, update):
