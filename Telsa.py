@@ -315,5 +315,27 @@ async def echo_document(client: Client, msg: Message):
 
 
 
+LIST = """**Language ➲ Language COMMAND
 
+PYTHON➲  /python
+ JAVA ➲  /java
+HTML ➲ /html
+CSS ➲ /css
+PHP ➲ /php
+SASS ➲ /sass
+PERL ➲ /perl
+SHELL ➲ /shell
+MATLAB ➲ /matlab
+KIVY ➲ /kivy
+KOTLIN ➲ /kotlin
+JAVA SCRIPT ➲  /js
+SQL ➲  /sql
+SWIFT ➲  /swift
+SAS ➲ /sas
+XML ➲ /xml
+RUBY ➲ /ruby
+YAML ➲ /yaml
+DOCKER FILE ➲ /docker
+C PROGRAMMING ➲ /C
+MARK DOWN ➲ /markdown """**
 HB.run()
