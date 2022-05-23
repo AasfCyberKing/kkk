@@ -23,6 +23,29 @@ JUST SENT YOUR CODE OR TEXT MESSAGE
 THEN I WILL CONVERT IT INTO FILE
 
 MADE BY @TELSABOTS**"""
+list_text = """**Language ➲ Language COMMAND
+
+PYTHON➲  /python
+ JAVA ➲  /java
+HTML ➲ /html
+CSS ➲ /css
+PHP ➲ /php
+SASS ➲ /sass
+PERL ➲ /perl
+SHELL ➲ /shell
+MATLAB ➲ /matlab
+KIVY ➲ /kivy
+KOTLIN ➲ /kotlin
+JAVA SCRIPT ➲  /js
+SQL ➲  /sql
+SWIFT ➲  /swift
+SAS ➲ /sas
+XML ➲ /xml
+RUBY ➲ /ruby
+YAML ➲ /yaml
+DOCKER FILE ➲ /docker
+C PROGRAMMING ➲ /C
+MARK DOWN ➲ /markdown """**
 
 HELP_TEXT = """**
 SENT ANY TEXT MESSAGE.......
@@ -88,6 +111,15 @@ SOURCE_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('🔐CLOSE 🔐', callback_data='close')
         ]]
     )
+list_buttons = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
+        ],[
+        InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
+        ]]
+    )
+
 
 @HB.on_callback_query()
 async def cb_data(bot, update):
@@ -141,7 +173,15 @@ async def about_message(bot, update):
         disable_web_page_preview=True,
         reply_markup=reply_markup
     )     
-    
+@HB.on_message(filters.command(["list"]))
+async def about_message(bot, update):
+    text = list_text
+    reply_markup = list_buttons
+    await update.reply_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+    )        
 @HB.on_message(filters.command(["Source", "s"]))
 async def Source_message(bot, update):
     text = SOURCE_TEXT
@@ -315,27 +355,5 @@ async def echo_document(client: Client, msg: Message):
 
 
 
-LIST = """**Language ➲ Language COMMAND
 
-PYTHON➲  /python
- JAVA ➲  /java
-HTML ➲ /html
-CSS ➲ /css
-PHP ➲ /php
-SASS ➲ /sass
-PERL ➲ /perl
-SHELL ➲ /shell
-MATLAB ➲ /matlab
-KIVY ➲ /kivy
-KOTLIN ➲ /kotlin
-JAVA SCRIPT ➲  /js
-SQL ➲  /sql
-SWIFT ➲  /swift
-SAS ➲ /sas
-XML ➲ /xml
-RUBY ➲ /ruby
-YAML ➲ /yaml
-DOCKER FILE ➲ /docker
-C PROGRAMMING ➲ /C
-MARK DOWN ➲ /markdown """**
 HB.run()
