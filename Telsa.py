@@ -64,6 +64,8 @@ SWIFT ➲  /swift
 SAS ➲ /sas
 XML ➲ /xml
 RUBY ➲ /ruby
+GO ➲ /go
+RUST ➲ /rust
 YAML ➲ /yaml
 DOCKER FILE ➲ /docker
 C PROGRAMMING ➲ /C
