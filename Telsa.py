@@ -74,7 +74,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
         InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
         ],[
-        InlineKeyboardButton('🆘HELP🆘', callback_data='python'),
+        InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
         InlineKeyboardButton('🤗ABOUT🤗', callback_data='about'),
         InlineKeyboardButton('🔐CLOSE🔐', callback_data='close')
         ]]
@@ -173,7 +173,16 @@ async def help_message(bot, update):
         disable_web_page_preview=True,
         reply_markup=reply_markup
     )
-
+@HB.on_message(filters.command(["list"]))
+async def about_message(bot, update):
+    text = list_text
+    reply_markup = list_buttons
+    await update.reply_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+    )
+    
 @HB.on_message(filters.command(["about"]))
 async def about_message(bot, update):
     text = ABOUT_TEXT
