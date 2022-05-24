@@ -6,8 +6,6 @@ import io
 from pyrogram.types import Message
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
 
-
-
 HB = Client(
     "MSG_DELETING Bot",
     bot_token = os.environ["BOT_TOKEN"],
