@@ -5,7 +5,6 @@ import tgcrypto
 import io
 from pyrogram.types import Message
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
-
 HB = Client(
     "MSG_DELETING Bot",
     bot_token = os.environ["BOT_TOKEN"],
@@ -404,82 +403,6 @@ async def echo_document(client: Client, msg: Message):
     file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
     file_obj.name = "site.php"
     await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
-
-
-@HB.on_message(filters.private & filters.command(["info"]))
-async def who_is(client, message):
-    # https://github.com/SpEcHiDe/PyroGramBot/blob/master/pyrobot/plugins/admemes/whois.py#L19
-    status_message = await message.reply_text(
-        "**...**"
-    )
-    await status_message.edit(
-        "**PLZ WAIT...**"
-    )
-    from_user = None
-    from_user_id, _ = extract_user(message)
-    try:
-        from_user = await client.get_users(from_user_id)
-    except Exception as error:
-        await status_message.edit(str(error))
-        return
-    if from_user is None:
-        return await status_message.edit("no valid user_id / message specified")
-    message_out_str = ""
-    message_out_str += f"<b>❇️FIRST NAME:</b> {from_user.first_name}\n\n"
-    last_name = from_user.last_name or "<b>None</b>"
-    message_out_str += f"<b>✳️LAST NAME✳:</b> {last_name}\n\n"
-    message_out_str += f"<b> 🆔ID :</b> <code>{from_user.id}</code>\n\n"
-    username = from_user.username or "<b>None</b>"
-    dc_id = from_user.dc_id or "[User Doesn't Have A Valid DP]"
-    message_out_str += f"<b>🗃DC :</b> <code>{dc_id}</code>\n\n"
-    message_out_str += f"<b>🈯️USER NAME:</b> @{username}\n\n"
-    message_out_str += f"<b>🔗USER LINK:</b> <a href='tg://user?id={from_user.id}'><b>LINK </b></a>\n\n"
-    if message.chat.type in (("supergroup", "channel")):
-        try:
-            chat_member_p = await message.chat.get_member(from_user.id)
-            joined_date = datetime.fromtimestamp(
-                chat_member_p.joined_date or time.time()
-            ).strftime("%Y.%m.%d %H:%M:%S")
-            message_out_str += (
-                "<b>➲Joined this Chat on:</b> <code>"
-                f"{joined_date}"
-                "</code>\n"
-            )
-        except UserNotParticipant:
-            pass
-    chat_photo = from_user.photo
-    if chat_photo:
-        local_user_photo = await client.download_media(
-            message=chat_photo.big_file_id
-        )
-        buttons = [[
-            InlineKeyboardButton('🧑‍💻DEV🧑‍💻', url="https://t.me/alluaddict"),
-            InlineKeyboardButton('🔐CLOSE🔐', callback_data='close_data')
-            
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=local_user_photo,
-            quote=True,
-            reply_markup=reply_markup,
-            caption=message_out_str,
-            parse_mode="html",
-            disable_notification=True
-        )
-        os.remove(local_user_photo)
-    else:
-        buttons = [[
-            InlineKeyboardButton('🔐 Close', callback_data='close_data')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text=message_out_str,
-            reply_markup=reply_markup,
-            quote=True,
-            parse_mode="html",
-            disable_notification=True
-        )
-    await status_message.delete()
 
 
 print("HB")
