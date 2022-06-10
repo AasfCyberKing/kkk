@@ -72,7 +72,7 @@ MARK DOWN ➲ /markdown **"""
 START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
-        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
+        InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict'),
         InlineKeyboardButton('⭐️VOTE⭐️', url='https://t.me/BotsArchive/2431')
         ],[
         InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
