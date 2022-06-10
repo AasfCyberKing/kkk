@@ -73,6 +73,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('📢CHANNEL📢', url='https://telegram.me/TELSABOTS'),
         InlineKeyboardButton('🧑🏼‍💻DEV🧑🏼‍💻', url='https://telegram.me/alluaddict')
+        InlineKeyboardButton('⭐️VOTE⭐️', url='https://t.me/BotsArchive/2431')
         ],[
         InlineKeyboardButton('🆘HELP🆘', callback_data='help'),
         InlineKeyboardButton('🤗ABOUT🤗', callback_data='about'),
