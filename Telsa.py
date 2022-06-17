@@ -236,7 +236,7 @@ async def answer(client, inline_query):
         ],
         cache_time=1
     )
-
+import asyncio
 thumbnail="https://telegra.ph/file/e8a39b06fabbfac6bce8f.jpg"
 wait="WAIT FOR 10 SECOND"
 @HB.on_message(filters.text & filters.command(["docker"]))
