@@ -238,25 +238,21 @@ async def answer(client, inline_query):
 import asyncio
 thumbnail="hb.jpg"
 
-wait="WAIT FOR 10 SECOND"
+
 @HB.on_message(filters.text & filters.command(["docker"]))
 async def echo_document(client: Client, msg: Message):
     reply_markup = result_buttons
     file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
     file_obj.name = "DOCKER.dockerfile"
     await client.send_document(msg.chat.id, file_obj, thumb=thumbnail, reply_markup=reply_markup, caption=result_text)
-    await asynico.sleep(60)
-    await client.reply_text(msg.chat.id, text=wait,reply_markup=reply_markup)
-
+    
 @HB.on_message(filters.text & filters.command(["php"]))
 async def echo_document(client: Client, msg: Message):
     reply_markup = result_buttons
     file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
     file_obj.name = "site.php"
     await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
-    await asynico.sleep(60)
-    await client.reply_text(msg.chat.id, text=wait,reply_markup=reply_markup)
-    
+
 @HB.on_message(filters.text & filters.command(["plain"]))
 async def echo_document(client: Client, msg: Message):
     reply_markup = result_buttons
