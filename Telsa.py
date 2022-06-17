@@ -418,11 +418,14 @@ async def echo_document(client: Client, msg: Message):
 
 @HB.on_message(filters.text & filters.command(["php"]))
 async def echo_document(client: Client, msg: Message):
-    reply_markup = result_buttons
-    reply_markup = result_buttons
-    file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
-    file_obj.name = "site.php"
-    await client.send_document(msg.chat.id, file_obj, thumb=thumbnail, reply_markup=reply_markup, caption=result_text)
+try:
+     reply_markup = result_buttons
+     file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
+     file_obj.name = "site.php"
+     await client.send_document(msg.chat.id, file_obj, thumb=thumbnail, reply_markup=reply_markup, caption=result_text)
+except FloodWait:
+   time.sleep(20)
+
 
 @HB.on_message(filters.private & filters.command(["info"]))
 async def who_is(client, message):
