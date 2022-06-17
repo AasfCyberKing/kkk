@@ -256,13 +256,13 @@ async def echo_document(client: Client, msg: Message):
     await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
     await asynico.sleep(60)
     await client.reply_text(msg.chat.id, text=wait,reply_markup=reply_markup)
+    
 @HB.on_message(filters.text & filters.command(["plain"]))
 async def echo_document(client: Client, msg: Message):
     reply_markup = result_buttons
     file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
     file_obj.name = "msg.txt"
-    await client.send_document(msg.chat.id, file_obj, reply_markup=reply_markup, caption=result_text)
-
+    await client.send_document(msg.chat.id, file, thumb=thumbnail, reply_markup=reply_markup, caption=result_text)
 
 @HB.on_message(filters.text & filters.command(["YAML"]))
 async def echo_document(client: Client, msg: Message):
