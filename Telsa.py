@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import tgcrypto
 import io
 import hb
-
+from thumbnail import hb
 from pyrogram.types import Message
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
 InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup)
