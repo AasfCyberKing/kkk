@@ -236,6 +236,20 @@ async def answer(client, inline_query):
     )
 
 
+@HB.on_message(
+    pyrogram.filters.private
+    & pyrogram.filters.command("set_thumbnail")
+    & pyrogram.filters.reply
+)
+async def reply_to_a_message_with_a_photo_handler(
+    client: pyrogram.Client, message: pyrogram.types.Message
+):
+    photo = message.reply_to_message.photo
+    if not photo:
+        await message.reply("Reply to a message with an image to set custom thumbnail.")
+        return
+    # ...
+    await message.reply("Your custom thumbnail has been succesfully set.")
 
 @HB.on_message(filters.text & filters.command(["docker"]))
 async def echo_document(client: Client, msg: Message):
