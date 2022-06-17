@@ -250,6 +250,7 @@ async def echo_document(client: Client, msg: Message):
         file_obj.name = "site.php"
         await client.send_document(msg.chat.id, file_obj, thumb=thumbnail, reply_markup=reply_markup, caption=result_text)
     except FloodWait:
+        await msg.reply_text("`Wait For 20 Seconds`")
         time.sleep(20)
 
     
