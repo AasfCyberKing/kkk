@@ -4,8 +4,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup 
 import tgcrypto
 import io
-import hb
-from thumbnail import hb
 from pyrogram.types import Message
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
 InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup)
@@ -246,7 +244,7 @@ async def echo_document(client: Client, msg: Message):
     reply_markup = result_buttons
     file_obj = io.BytesIO(bytes(msg.reply_to_message.text, "utf-8"))
     file_obj.name = "DOCKER.dockerfile"
-    await client.send_document(msg.chat.id, file_obj, thumbs=thumbnail, reply_markup=reply_markup, caption=result_text)
+    await client.send_document(msg.chat.id, file_obj, thumb=thumbnail, reply_markup=reply_markup, caption=result_text)
     await asynico.sleep(60)
     await client.reply_text(msg.chat.id, text=wait,reply_markup=reply_markup)
 
