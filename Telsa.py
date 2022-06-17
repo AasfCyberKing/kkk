@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup 
 import tgcrypto
 import io
+import hb.jpg
 
 from pyrogram.types import Message
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent,
@@ -237,7 +238,8 @@ async def answer(client, inline_query):
         cache_time=1
     )
 import asyncio
-thumbnail="https://telegra.ph/file/e8a39b06fabbfac6bce8f.jpg"
+thumbnail="hb.jpg"
+
 wait="WAIT FOR 10 SECOND"
 @HB.on_message(filters.text & filters.command(["docker"]))
 async def echo_document(client: Client, msg: Message):
